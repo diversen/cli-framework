@@ -1,0 +1,28 @@
+{
+    "repositories": [
+        {
+            "type": "pear",
+            "url": "http://pear.php.net"
+        }
+
+    ], "require": {
+        "pear-pear.php.net/PEAR": "1.9.*",
+        "pear-pear.php.net/Console_Commandline": "1.2.*",
+        "pear-pear.php.net/Console_Color": "1.0.*"
+    },
+    "name": "diversen/cli-framework",
+    "description": "A simple CLI framework built around pear-commandline",
+    "homepage": "https://github.com/diversen/simple-pager",
+    "keywords": ["cli", "framework", "commandline", "simple"],
+    "license": "BSD-3-Clause",
+    "autoload": {
+        "psr-4": {
+            "diversen\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.3.x-dev"
+        }
+    }
+}
