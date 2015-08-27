@@ -80,7 +80,7 @@ class common {
      * @param string $status [OK]
      * @return string $status
      */
-    public static function getColorStatus($status) {
+    private static function getColorStatus($status) {
         $len = strlen($status);
         $add_spaces = 12 - $len;
         $status.=str_repeat(' ', $add_spaces);
@@ -94,14 +94,14 @@ class common {
      * @return string $colorered output
      */
     public static function colorOutput($output, $color_code = 'g') {
-        static $color = null;
+        //static $color = null;
         if (!self::isCli()) {
             return $output;
         }
 
-        if (!$color) {
+        //if (!$color) {
             $color = new Console_Color();
-        }
+        //}
         $ret = $color->convert("%$color_code$output%n");
         return $ret;
     }

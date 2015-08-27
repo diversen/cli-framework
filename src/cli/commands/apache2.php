@@ -1,53 +1,92 @@
 <?php
 
+use diversen\cli\common;
 
-use diversen\apache2;
+function miau_get_colors () {
+    $ary = [
+        'Red',
+        'Green',
+        'Yellow',
+        'Blue',
+        'Purple',
+        'Cyan',
+        'white'
+        
+        ];
+    return $ary;
+} 
 
-/**
- * File contains shell commands for apache2 on Debian systems for fast
- * creatiion of apache2 web hosts
- */
-
-function cos_create_a2_conf($SERVER_NAME){
-    return apache2::getA2Conf($SERVER_NAME);
+function miau_cat () {
+    $str = <<<EOF
+                        /\_/\
+                   ____/ o o \
+                 /~____  =ø= /
+                (______)__m_m)
+EOF;
+    return $str;
 }
 
-function cos_a2_enable_site($options){
-    apache2::enableSite($options);
+function miau_test ($options) {
+    
+    echo common::colorOutput('These are the options given to function miau_test()', 'Cyan');
+    echo PHP_EOL;
+    
+    // Print the arguments
+    print_r($options);
+    
+    // echo a string with a newline
+    echo common::echoMessage('Draw a cat!');
+    
+    // echo a colored string. You will need to add newlines 
+    echo common::colorOutput('Miau', 'y') . PHP_EOL;
+    
+    // Read a line from the user
+    $str = common::readSingleline('How do you feel? (Enter input) ');
+    
+    // Echo a formatted status
+    echo common::echoStatus('OK', 'y', $str);
+    
+    // confirm with a yes or a no
+    $res = common::readlineConfirm('Please confirm that you feel ' . $str);
+
+    // readlineConfirm return 1 on 'y' and 0 on 'n'
+    if (!$res) {
+        echo common::colorOutput('Ok - you typed wrong in the first place!', 'r') . PHP_EOL;
+    } else {
+        echo common::colorOutput('OK. You feel that way. ', 'b') . PHP_EOL;
+    }
 }
 
-function cos_a2_disable_site($options){
-    apache2::disableSite($options);
+function miau_colors ($options) {
+    $ary = miau_get_colors();
+    foreach ($ary as $color) {
+        common::echoMessage($color);
+        $char = substr($color, 0, 1);
+        echo common::colorOutput(miau_cat(), $char) . PHP_EOL;
+    }
 }
 
-function cos_a2_use_ssl ($options) {
-    apache2::setUseSSL($options);
-}
-
-self::setCommand('apache2', array(
-    'description' => 'Apache2 commands (For Linux). Install, remove hosts.',
+// Set top command
+self::setCommand('miau', array(
+    'description' => 'A cats program.',
 ));
 
-self::setOption('cos_a2_use_ssl', array(
-    'long_name'   => '--ssl',
-    'description' => 'Set this flag and enable SSL mode',
-    'action'      => 'StoreTrue'
+// Add an option
+self::setOption('miau_test', array(
+    'long_name'   => '--test',
+    'description' => 'Test some the cli\diversen\common commands',
+    'action'      => 'StoreTrue',
 ));
 
-self::setOption('cos_a2_enable_site', array(
-    'long_name'   => '--enable',
-    'description' => 'Will enable current directory as an apache2 virtual host. Will also add new sitename to your /etc/hosts file',
-    'action'      => 'StoreTrue'
-));
-
-self::setOption('cos_a2_disable_site', array(
-    'long_name'   => '--disable',
-    'description' => 'Will disable current directory as an apache2 virtual host, and remove sitename from /etc/hosts files',
-    'action'      => 'StoreTrue'
+// Add an option
+self::setOption('miau_colors', array(
+    'long_name'   => '--colors',
+    'description' => 'Test some shell colors',
+    'action'      => 'StoreTrue',
 ));
 
 self::setArgument(
-    'hostname',
-    array('description'=> 'Specify the apache hostname to be used for install or uninstall. yoursite will be http://yoursite',
-        'optional' => false,
+    'color',
+    array('description'=> 'Put color on the drawn cat',
+        'optional' => true,
 ));
