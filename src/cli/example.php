@@ -32,9 +32,9 @@ EOF;
         // Adding a main option for setting domain
         self::$parser->addOption(
             'domain', array(
-            'short_name' => '-d',
-            'long_name' => '--domain',
-            'description' => 'Domain to use if using multi hosts. If not set we will use default domain',
+            'short_name' => '-m',
+            'long_name' => '--mice',
+            'description' => 'Just to add option with no meaning',
             'action' => 'StoreString',
             'default' => 'default',
                 )
