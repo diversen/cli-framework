@@ -41,19 +41,19 @@ function miau_test ($options) {
     echo common::colorOutput('Miau', 'y') . PHP_EOL;
     
     // Read a line from the user
-    $str = common::readSingleline('How do you feel? (Enter input) ');
+    $str = common::readSingleline('What does a cat say? (Enter input) ');
     
     // Echo a formatted status
     echo common::echoStatus('OK', 'y', $str);
     
     // confirm with a yes or a no
-    $res = common::readlineConfirm('Please confirm that you feel ' . $str);
+    $res = common::readlineConfirm('Please confirm that you are sure ' . $str);
 
     // readlineConfirm return 1 on 'y' and 0 on 'n'
     if (!$res) {
-        echo common::colorOutput('Ok - you typed wrong in the first place!', 'r') . PHP_EOL;
+        echo common::colorOutput('Ok - you made a mistake!', 'r') . PHP_EOL;
     } else {
-        echo common::colorOutput('OK. You feel that way. ', 'b') . PHP_EOL;
+        echo common::colorOutput('OK. You are sure. ', 'b') . PHP_EOL;
     }
 }
 
