@@ -246,5 +246,4 @@ class common {
         }
         return $out;
     }
-
 }

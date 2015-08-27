@@ -5,6 +5,13 @@ namespace diversen\cli;
 use diversen\cli;
 
 class example extends cli {
+    
+    /**
+     * Init - the commandline parser
+     * Init - load functions and classes.
+     * Init - Add major options, like -v
+     */
+    
     public static function init() {
         
         // Init parent with base commands
