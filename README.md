@@ -22,6 +22,6 @@ example::init();
 example::run();
 ~~~
 
-The example found at [https://github.com/diversen/cli-framework/blob/master/src/cli/example.php](https://github.com/diversen/cli-framework/blob/master/src/cli/example.php)
+This example found is found in [src/cli/example.php](https://github.com/diversen/cli-framework/blob/master/src/cli/example.php)
 
-
+The example loads all commands found in 
