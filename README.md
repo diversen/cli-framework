@@ -6,7 +6,7 @@ A simple CLI framework built with PEAR console_commandline and PEAR console_colo
 
 composer require diversen/cli-framework
 
-Example: 
+# Example: 
 
 There is an example. You can test it like this:  
 Put it in a file called `example`. 
@@ -22,6 +22,8 @@ use diversen\cli\example;
 example::init();
 example::run();
 ~~~
+
+Run the example:
 
     chmod +x example
     ./example 
