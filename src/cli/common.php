@@ -125,7 +125,7 @@ class common {
     }
 
     /**
-     * function for executing commands with php built-in command system
+     * Function for executing commands with php built-in command system
      * @param string $command to execute
      * @return int   $ret the value returned by the shell script being
      *                 executed through exec()
