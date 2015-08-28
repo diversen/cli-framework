@@ -116,7 +116,7 @@ EOF;
      * @param array $result
      * @return int $ret the result of the command execution
      */
-    public function execute($result) {
+    public static function execute($result) {
         $ret = 0;
 
         if (is_object($result) && isset($result->command_name)) {
