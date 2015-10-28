@@ -4,6 +4,18 @@ A simple CLI framework built with PEAR console_commandline and PEAR console_colo
 
 # Install
 
+You will need to have the `PEAR repositories` enabled in your base `composer.json` file:  
+
+~~~.json
+    "repositories": [
+        {
+            "type": "pear",
+            "url": "http://pear.php.net"
+        }
+
+    ],
+~~~
+
 composer require diversen/cli-framework
 
 # Example: 
