@@ -10,7 +10,7 @@ You will need to have the `PEAR repositories` enabled in your base `composer.jso
     "repositories": [
         {
             "type": "pear",
-            "url": "http://pear.php.net"
+            "url": "https://pear.php.net"
         }
 
     ],
